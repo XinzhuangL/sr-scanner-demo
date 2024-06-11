@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
+  <component name="CMakeReloadState">
+    <option name="reloaded" value="true" />
+  </component>
+  <component name="CMakeRunConfigurationManager">
+    <generated>
+      <config projectName="be" targetName="be" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c1b56b04-f2f9-4a5c-9b69-99840f2e821f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/be.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/.clang-format" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/.idea/be.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/CMakeLists.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/.cmake/api/v1/query/cache-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-fad075e661e5b88ad7a3.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-f5ebdc15457944623624.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-33a5d2c0fb74e27bb928.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-a5f8f4d87d6c205b3d20.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.22.4/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.22.4/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.22.4/CMakeSystem.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.22.4/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.22.4/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.28.1/CMakeCCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.28.1/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.28.1/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.28.1/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.28.1/CMakeSystem.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdC/CMakeCCompilerId.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/3.28.1/CompilerIdCXX/CMakeCXXCompilerId.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/be.dir/DependInfo.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/be.dir/build.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/be.dir/cmake_clean.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/be.dir/compiler_depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/be.dir/compiler_depend.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/be.dir/depend.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/be.dir/flags.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/be.dir/link.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/be.dir/progress.make" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/be" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/be.cbp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/build.ninja" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/common/buffer.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/common/buffer.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/common/chunk.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/common/status.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/common/statusor.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/datasource/connector.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/datasource/jdbc_connector.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/datasource/jdbc_connector.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/fs/fs.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/fs/fs.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/fs/fs_util.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/main.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/mock_pipeline_driver.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/mock_pipeline_driver.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/operator/connector_scan_operator.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/operator/connector_scan_operator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/operator/scan_operator.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/operator/scan_operator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/operator/source_operator.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/runtime/jdbc_driver_manager.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/runtime/jdbc_driver_manager.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/runtime/primitive_type.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/scanner/jdbc_scanner.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/scanner/jdbc_scanner.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/source/chunk_source.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/source/chunk_source.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/table/descriptors.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/udf/java_udf.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/be/udf/java_udf.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fe/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/sr-scanner-demo.iml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2hRQYOHOai5mX0xh3EhJvNsLUd4" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "CMake Application.be.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "cf.advertisement.text.overridden": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/Users/lixinzhuang1/IdeaProjects/sr-scanner-demo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "CPPToolchains",
+    "ts.external.directory.path": "/Applications/IntelliJ IDEA.app/Contents/plugins/javascript-impl/jsLanguageServicesImpl/external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/be/udf" />
+      <recent name="$PROJECT_DIR$/be" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="be" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="be" TARGET_NAME="be" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="be" RUN_TARGET_NAME="be">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c1b56b04-f2f9-4a5c-9b69-99840f2e821f" name="Changes" comment="" />
+      <created>1717554458334</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1717554458334</updated>
+      <workItem from="1717554459522" duration="1000" />
+      <workItem from="1717554584153" duration="64000" />
+      <workItem from="1717554728782" duration="48653000" />
+      <workItem from="1718101434921" duration="3686000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VCPKGProject">
+    <isAutomaticCheckingOnLaunch value="false" />
+    <isAutomaticFoundErrors value="true" />
+    <isAutomaticReloadCMake value="true" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/be/mock_pipeline_driver.cpp</url>
+          <line>15</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

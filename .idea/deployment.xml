@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="8_docker容器 (99141b71-f1be-42a6-9316-d292e12a70bb)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.KGGazvpZbc" local="$PROJECT_DIR$/be" />
+          </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/be/cmake-build-debug" />
+          </excludedPaths>
+        </serverdata>
+      </paths>
+      <paths name="8debug (062ddd3b-a93b-4dec-9f3e-b3eac77ea025)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/fe" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="8机器">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/fe" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="Remote Host (8d278582-6c0c-4576-a417-8832cbf565ad)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/fe" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="docker容器 (5f823110-f320-432e-8d84-5e2c6b378e65)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/fe" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="starrocks-dev (bd059bb8-25e5-47d8-bec8-2fdd5b98602f)">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$/fe" web="/" />
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>
