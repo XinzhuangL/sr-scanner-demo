@@ -1,11 +1,14 @@
 //
 // Created by lixinzhuang1 on 2024/6/6.
 //
-
+#pragma once
 #ifndef BE_JAVA_UDF_H
 #define BE_JAVA_UDF_H
 
 #include "common/status.h"
+#include "common/statusor.h"
+#include "jni.h"
+#include "column/column.h"
 
 // implements by libhdfs
 // hadoop-hdfs-native-client/src/main/native/libhdfs/jni_helper.c
@@ -56,8 +59,20 @@ namespace starrocks::vectorized {
         jobject create_array(int sz);
 
 
+        // List methods
+        jobject list_get(jobject obj, int idx);
+        int list_size(jobject obj);
+
+
+
+        Status get_result_from_boxed_array(int type, Column* col, jobject jcolumn, int rows);
+
+
     private:
         inline static thread_local JNIEnv *_env;
+
+        JVMFunctionHelper() { _init(); };
+        void _init();
 
         DEFINE_JAVA_PRIM_TYPE(boolean);
         DEFINE_JAVA_PRIM_TYPE(byte);

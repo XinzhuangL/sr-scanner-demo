@@ -1,13 +1,13 @@
 //
 // Created by lixinzhuang1 on 2024/6/5.
 //
-
+#pragma once
 #ifndef BE_CHUNK_SOURCE_H
 #define BE_CHUNK_SOURCE_H
 
-#include "common/buffer.cpp"
 #include "common/status.h"
 #include "common/chunk.h"
+#include "common/buffer.h"
 
 namespace starrocks {
     namespace pipeline {

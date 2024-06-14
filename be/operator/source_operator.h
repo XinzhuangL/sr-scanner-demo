@@ -1,7 +1,7 @@
 //
 // Created by lixinzhuang1 on 2024/6/5.
 //
-
+#pragma once
 #ifndef BE_SOURCE_OPERATOR_H
 #define BE_SOURCE_OPERATOR_H
 
@@ -16,14 +16,15 @@ namespace starrocks {
         public:
             Operator(int32_t id, std::string name)
                 : _id(id),
-                  _name(name) {}
+                  _name(std::move(name)) {};
             virtual ~Operator() = default;
 
             // prepare is used to do the initialization work
             // It's one of the stages of the operator life cycle
             // (prepare -> finishing -> finished -> [cancelled] -> closed)
             // This method will be exactly invoked once in the whole life cycle
-            virtual Status prepare();
+
+            // todo virtual Status prepare();
 
             // Notifies the operator that no more input chunk will be added.
 
@@ -36,7 +37,8 @@ namespace starrocks {
             // finish function is used to finish the following operator of the current operator that
             // encounters its EOS and has no data to push into its following operator, but the operator
             // is not finished until its buffered data inside is processed
-            virtual Status set_finishing() { return Status::OK(); }
+
+           // todo virtual Status set_finishing() { return Status::OK(); }
 
             // set_finished is used to shutdown both input and output stream of an operator and after its invocation
             // buffered data inside the operator is cleared.
@@ -55,15 +57,15 @@ namespace starrocks {
             // - When the fragment exits abnormally, the stage operator will become to CANCELLED between FINISHED and CLOSE.
             // - When the fragment exits normally, there isn't CANCELLED stage for the drivers.
             // SomeTimes, the operator need to realize it is cancelled to stop earlier than normal, such as ExchangeSink.
-            virtual Status set_cancelled() { return Status::OK(); }
+            // todo virtual Status set_cancelled() { return Status::OK(); }
 
             // when local runtime filters are ready, the operator should bound its corresponding runtime in-filters.
-            virtual void set_precondition_ready();
+            // todo virtual void set_precondition_ready();
 
             // close is used to do the cleanup work
             // It's one of the stages of the operator life cycle (prepare -> finishing -> finished -> [cancelled] -> closed)
             // This method will be exactly invoked once in the whole life cycle
-            virtual void close();
+            // todo virtual void close();
 
             // Whether we could pull chunk from this operator
             virtual bool has_output() const = 0;
@@ -85,7 +87,8 @@ namespace starrocks {
             // since FragmentContext is unregistered prematurely after all the drivers are finalized.
 
             // Only source and sink operator may return true, and other operators always return false.
-            virtual bool pending_finish() const { return false; }
+
+            // todo virtual bool pending_finish() const { return false; }
 
 
             // Pull chunk from this operator

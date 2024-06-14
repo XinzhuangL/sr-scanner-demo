@@ -1,7 +1,7 @@
 //
 // Created by lixinzhuang1 on 2024/6/5.
 //
-
+#pragma once
 #ifndef BE_SCAN_OPERATOR_H
 #define BE_SCAN_OPERATOR_H
 #include "operator/source_operator.h"
@@ -13,28 +13,31 @@ namespace starrocks {
     namespace pipeline {
         class ScanOperator : public SourceOperator {
         public:
-            ScanOperator();
+            ScanOperator(): SourceOperator(1, "default") {};
             ~ScanOperator() override;
             /// interface for different scan node
-            virtual Status do_prepare() = 0;
-            virtual void do_close() = 0;
+            // todo virtual Status do_prepare() = 0;
+            // todo virtual void do_close() = 0;
             virtual ChunkSourcePtr create_chunk_source() = 0;
             StatusOr<vectorized::ChunkPtr> pull_chunk() override;
             // todo part of all
         protected:
             static constexpr size_t kIOTaskBatchSize = 64;
-            virtual void attach_chunk_source(int32_t source_index) = 0;
-            virtual void detach_chunk_source(int32_t source_index) {}
-            virtual bool has_shared_chunk_source() const = 0;
+            // todo virtual void attach_chunk_source(int32_t source_index) = 0;
+            // todo virtual void detach_chunk_source(int32_t source_index) {}
+            // todo virtual bool has_shared_chunk_source() const = 0;
 
-            virtual vectorized::ChunkPtr get_chunk_from_buffer() = 0;
-            virtual size_t num_buffered_chunks() const = 0;
-            virtual size_t buffer_size() const = 0;
-            virtual size_t buffer_capacity() const = 0;
-            virtual size_t default_buffer_capacity() const = 0;
+            // todo virtual vectorized::ChunkPtr get_chunk_from_buffer() = 0;
+            // todo virtual size_t num_buffered_chunks() const = 0;
+            // todo virtual size_t buffer_size() const = 0;
+            // todo virtual size_t buffer_capacity() const = 0;
+            // todo virtual size_t default_buffer_capacity() const = 0;
             //
-            virtual bool is_buffer_full() const = 0;
-            virtual void set_buffer_finished() = 0;
+            // todo virtual bool is_buffer_full() const = 0;
+            // todo virtual void set_buffer_finished() = 0;
+
+            bool has_output() const override;
+            bool is_finished() const override;
 
         private:
             // mutable SpinLock _scan_status_mutes;

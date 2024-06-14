@@ -1,7 +1,7 @@
 //
 // Created by lixinzhuang1 on 2024/6/5.
 //
-
+#pragma once
 #ifndef BE_CONNECTOR_SCAN_OPERATOR_H
 #define BE_CONNECTOR_SCAN_OPERATOR_H
 
@@ -26,25 +26,25 @@ namespace starrocks {
         class ConnectorScanOperator final : public  ScanOperator {
         public:
             // OperatorFactory, id, drive_sequence, dop, ScanNode
-            ConnectorScanOperator();
+            ConnectorScanOperator() : ScanOperator() {};
             ~ConnectorScanOperator() override = default;
 
-            Status do_prepare() override;
-            void do_close() override;
+            // todo  Status do_prepare() override;
+            // todo void do_close() override;
             ChunkSourcePtr create_chunk_source() override;
             // connector_type
 
-            void attach_chunk_source(int32_t source_index) override;
-            void detach_chunk_source(int32_t source_index) override;
-            bool has_shared_chunk_source() const override;
-            vectorized::ChunkPtr get_chunk_from_buffer() override;
-            size_t num_buffered_chunks() const override;
-            size_t buffer_size() const override;
-            size_t buffer_capacity() const override;
-            size_t default_buffer_capacity() const override;
+            // todo void attach_chunk_source(int32_t source_index) override;
+            // todo void detach_chunk_source(int32_t source_index) override;
+            // todo bool has_shared_chunk_source() const override;
+            // todo vectorized::ChunkPtr get_chunk_from_buffer() override;
+            // todo size_t num_buffered_chunks() const override;
+            // todo size_t buffer_size() const override;
+            // todo size_t buffer_capacity() const override;
+            // todo size_t default_buffer_capacity() const override;
             // pin_chunk()
-            bool is_buffer_full() const override;
-            void set_buffer_finished() override;
+            // todo  bool is_buffer_full() const override;
+            // todo void set_buffer_finished() override;
 
             // available_pickup_morsel_count
             // begin_driver_process

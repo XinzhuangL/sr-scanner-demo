@@ -9,6 +9,14 @@ namespace starrocks {
 
     namespace pipeline {
 
+        ConnectorChunkSource::~ConnectorChunkSource() noexcept {
+
+        }
+
+        void ConnectorChunkSource::close() {
+
+        }
+
         ChunkSourcePtr ConnectorScanOperator::create_chunk_source() {
             // buffer will be destroyed when create_chunk_source finished
                 Buffer buffer;
@@ -47,6 +55,8 @@ namespace starrocks {
             }
             return Status::OK();
         }
+
+
 
     } // pipeline
 

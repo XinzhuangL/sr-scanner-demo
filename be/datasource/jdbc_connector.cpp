@@ -18,6 +18,17 @@ namespace starrocks::connector {
     }
 
     Status JDBCDataSource::get_next(vectorized::ChunkPtr *chunk) {
+        bool eos = false;
+            _init_chunk(chunk, 0);
+            do {
+                _scanner ->get_next(chunk, &eos);
+
+            } while (!eos && (*chunk) -> num_rows() == 0);
+            if (eos) {
+                // todo return end of file
+                return Status::OK();
+            }
+            return Status::OK();
 
     }
 

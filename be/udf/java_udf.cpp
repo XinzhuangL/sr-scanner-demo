@@ -6,6 +6,18 @@
 
 namespace starrocks::vectorized {
 
+    JVMFunctionHelper& JVMFunctionHelper::getInstance() {
+        if (_env == nullptr) {
+            _env = getJNIEnv();
+          //  CHECK(_env != nullptr) << "couldn't got a JNIEnv";
+        }
+        static JVMFunctionHelper helper;
+        return helper;
+    }
+
+    void JVMFunctionHelper::_init() {
+        // todo
+    }
     Status detect_java_runtime() {
         const char* p = std::getenv("JAVA_HOME");
         if (p == nullptr) {

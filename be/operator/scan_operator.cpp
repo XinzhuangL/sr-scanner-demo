@@ -7,6 +7,10 @@
 
 namespace starrocks::pipeline {
 
+    ChunkSourcePtr ScanOperator::create_chunk_source() {
+            return nullptr;
+    }
+
     Status ScanOperator::_pickup_morsel() {
 
         _chunk_source = create_chunk_source();
@@ -26,6 +30,10 @@ namespace starrocks::pipeline {
         if(!_get_scan_status().ok()) return StatusOr<vectorized::ChunkPtr>();
 
         // set peak buffer size counter
+
+        // todo return if error
+        _try_to_trigger_next_scan();
+
 
         // try to trigger next scan
 
@@ -57,6 +65,18 @@ namespace starrocks::pipeline {
         if(!_chunk_source -> has_next_chunk() || is_finished()) {
             // close
         }
+    }
+
+    bool ScanOperator::has_output() const {
+        return false;
+    }
+
+    bool ScanOperator::is_finished() const {
+        return true;
+    }
+
+    ScanOperator::~ScanOperator() {
+
     }
 
 

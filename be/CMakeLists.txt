@@ -13,7 +13,7 @@ message(STATUS "JAVA_HOME is set to ${JAVA_HOME}")
 
 # 包含 JNI 头文件目录
 include_directories(${JAVA_HOME}/include)
-include_directories(${JAVA_HOME}/include/darwin)
+include_directories(${JAVA_HOME}/include/linux)
 
 # 链接到 JNI 库
 find_library(JVM_LIBRARY jvm PATHS ${JAVA_HOME}/jre/lib/amd64/server)
@@ -29,10 +29,16 @@ endif()
 
 
 add_executable(be main.cpp
+        column/column_helper.cpp
         common/buffer.cpp
-        source/chunk_source.cpp
+        datasource/jdbc_connector.cpp
+        operator/connector_scan_operator.cpp
+        operator/scan_operator.cpp
+        runtime/jdbc_driver_manager.cpp
         scanner/jdbc_scanner.cpp
-        runtime/jdbc_driver_manager.cpp)
+        source/chunk_source.cpp
+        udf/java_udf.cpp
+        mock_pipeline_driver.cpp)
 
 target_link_libraries(be ${JVM_LIBRARY})
 #target_link_libraries(be fmt)

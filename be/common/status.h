@@ -1,7 +1,7 @@
 //
 // Created by lixinzhuang1 on 2024/6/5.
 //
-
+#pragma once
 #ifndef BE_STATUS_H
 #define BE_STATUS_H
 #include <string>
@@ -10,7 +10,7 @@
 namespace starrocks {
     class Status {
     public:
-        Status();
+        Status() {};
         static Status OK() { return Status(); }
         static Status InternalError(const std::string& msg) {
             return Status();

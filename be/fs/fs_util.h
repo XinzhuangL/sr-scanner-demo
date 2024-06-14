@@ -1,7 +1,7 @@
 //
 // Created by lixinzhuang1 on 2024/6/7.
 //
-
+#pragma once
 #ifndef BE_FS_UTIL_H
 #define BE_FS_UTIL_H
 

@@ -1,7 +1,7 @@
 //
 // Created by lixinzhuang1 on 2024/6/5.
 //
-
+#pragma once
 #ifndef BE_MOCK_PIPELINE_DRIVER_H
 #define BE_MOCK_PIPELINE_DRIVER_H
 #include <vector>

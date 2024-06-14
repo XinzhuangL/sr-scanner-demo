@@ -1,6 +1,5 @@
 #include "mock_pipeline_driver.h"
 #include "operator/connector_scan_operator.h"
-#include <iostream>
 #include <vector>
 using namespace starrocks;
 int main() {
@@ -11,5 +10,9 @@ int main() {
 
    pipeline::MockPipelineDriver* pipDriver = new pipeline::MockPipelineDriver(ops);
 
+   pipDriver->prepare();
 
+   pipDriver->process();
+
+   // todo finished
 }

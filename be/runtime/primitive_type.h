@@ -1,7 +1,7 @@
 //
 // Created by lixinzhuang1 on 2024/6/11.
 //
-
+#pragma once
 #ifndef BE_PRIMITIVE_TYPE_H
 #define BE_PRIMITIVE_TYPE_H
 

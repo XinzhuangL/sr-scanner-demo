@@ -1,7 +1,7 @@
 //
 // Created by lixinzhuang1 on 2024/6/6.
 //
-
+#pragma once
 #ifndef BE_JDBC_CONNECTOR_H
 #define BE_JDBC_CONNECTOR_H
 

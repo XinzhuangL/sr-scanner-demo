@@ -1,7 +1,7 @@
 //
 // Created by lixinzhuang1 on 2024/6/6.
 //
-
+#pragma once
 #ifndef BE_JDBC_SCANNER_H
 #define BE_JDBC_SCANNER_H
 
@@ -29,7 +29,8 @@ namespace starrocks::vectorized {
     class JDBCScanner {
     public:
         JDBCScanner(const JDBCScanContext &context, const TupleDescriptor *tuple_desc)
-        : _scan_ctx(context), _slot_descs(tuple_desc -> slots()){}
+        //: _scan_ctx(context), _slot_descs(tuple_desc -> slots()){}
+                : _scan_ctx(context), _slot_descs(){}
         ~JDBCScanner() = default;
 
         Status open();
@@ -68,7 +69,7 @@ namespace starrocks::vectorized {
         std::vector<SlotDescriptor *> _slot_descs;
         // java class name for each result column
         std::vector<std::string> _column_class_names;
-        // std::vector<PrimitiveType> _result_column_types;
+        std::vector<PrimitiveType> _result_column_types;
         ChunkPtr _result_chunk;
 
         std::unique_ptr<JVMClass> _jdbc_bridge_cls;
