@@ -3,3 +3,9 @@
 //
 
 #include "column_helper.h"
+
+namespace starrocks::vectorized {
+    ColumnPtr ColumnHelper::create_column(const TypeDescriptor& type_desc, bool nullable) {
+        return nullptr;
+    }
+}

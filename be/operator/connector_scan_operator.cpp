@@ -17,6 +17,10 @@ namespace starrocks {
 
         }
 
+        Status ConnectorChunkSource::prepare() {
+                return Status::OK();
+        }
+
         ChunkSourcePtr ConnectorScanOperator::create_chunk_source() {
             // buffer will be destroyed when create_chunk_source finished
                 Buffer buffer;
@@ -34,6 +38,7 @@ namespace starrocks {
         Status ConnectorChunkSource::_read_chunk(vectorized::ChunkPtr *chunk) {
 
             if(!_opened) {
+                // todo need create _data_source
                 auto status = _data_source -> open();
                 if(!status.ok()) {
                     return Status::InternalError("open data source error");

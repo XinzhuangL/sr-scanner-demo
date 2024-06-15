@@ -15,8 +15,7 @@ namespace starrocks {
         using Columns = std::vector<ColumnPtr>;
         class Chunk {
         public:
-
-            Chunk();
+            Chunk() {};
             size_t num_rows() const { return _columns.empty() ? 0 : _columns[0]-> size(); }
         private:
             Columns _columns;

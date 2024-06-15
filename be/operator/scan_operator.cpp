@@ -27,7 +27,7 @@ namespace starrocks::pipeline {
 
     StatusOr<vectorized::ChunkPtr> ScanOperator::pull_chunk() {
         // get scan status
-        if(!_get_scan_status().ok()) return StatusOr<vectorized::ChunkPtr>();
+        // if(!_get_scan_status().ok()) return StatusOr<vectorized::ChunkPtr>();
 
         // set peak buffer size counter
 

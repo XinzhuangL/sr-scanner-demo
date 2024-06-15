@@ -68,7 +68,7 @@ namespace starrocks::vectorized {
         // jdbc_bridge_cls != null
         _jdbc_bridge_cls = std::make_unique<JVMClass>(env->NewGlobalRef(jdbc_bridge_cls));
         // todo  LOCAL_REF_GUARD_ENV(env, jdbc_bridge_cls);
-        _jdbc_bridge = std::move(_jdbc_bridge_cls->newInstance().value());
+        _jdbc_bridge = _jdbc_bridge_cls->newInstance().ValueOrDie();
 
 
         // 2. set class loader
@@ -172,7 +172,7 @@ namespace starrocks::vectorized {
             // todo ASSIGN_OR_RETURN
             auto ret_type = _precheck_data_type(class_name, _slot_descs[i]);
             _column_class_names.emplace_back(class_name);
-            _result_column_types.emplace_back(ret_type.value());
+            _result_column_types.emplace_back(ret_type.ValueOrDie());
 
             // intermediate means the result type from JDBC Scanner
             // Some types cannot be written directly to the column,
@@ -180,7 +180,7 @@ namespace starrocks::vectorized {
             // eg:
             // JDBC(java.sql.Date) -> SR(TYPE_VARCHAR) -> SR(cast(varchar as TYPE_DATE))
             // todo need Descriptor Column etc.
-             auto intermediate = TypeDescriptor(ret_type.value());
+             auto intermediate = TypeDescriptor(ret_type.ValueOrDie());
              auto result_column = ColumnHelper::create_column(intermediate, true);
              // append_column
              // todo unfinished cast

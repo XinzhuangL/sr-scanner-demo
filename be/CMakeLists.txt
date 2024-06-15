@@ -6,17 +6,20 @@ include_directories(include ${PROJECT_SOURCE_DIR})
 
 set(CMAKE_CXX_STANDARD 17)
 
-set(JAVA_HOME /var/local/thirdparty/installed/open_jdk)
+set(JAVA_HOME /Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home)
+#set(JAVA_HOME /var/local/thirdparty/installed/open_jdk)
 
 message(STATUS "JAVA_HOME is set to ${JAVA_HOME}")
 
 
 # 包含 JNI 头文件目录
 include_directories(${JAVA_HOME}/include)
-include_directories(${JAVA_HOME}/include/linux)
+#include_directories(${JAVA_HOME}/include/linux)
+include_directories(${JAVA_HOME}/include/darwin)
 
 # 链接到 JNI 库
-find_library(JVM_LIBRARY jvm PATHS ${JAVA_HOME}/jre/lib/amd64/server)
+# find_library(JVM_LIBRARY jvm PATHS ${JAVA_HOME}/jre/lib/amd64/server)
+find_library(JVM_LIBRARY jvm PATHS ${JAVA_HOME}/jre/lib/server)
 if(NOT JVM_LIBRARY)
     message(FATAL_ERROR "JVM library not found")
 endif()

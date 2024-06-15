@@ -17,7 +17,8 @@
 // 2. libhdfs depends on this function and does some initialization,
 // if the JVM has already created it, it won't create it anymore.
 // if we skip this function call will cause libhdfs to miss some initialization operations
-extern "C" JNIEnv *getJNIEnv(void);
+// extern "C" JNIEnv *getJNIEnv(void);
+
 
 #define DEFINE_JAVA_PRIM_TYPE(TYPE) \
     jclass _class_##TYPE;           \
@@ -117,7 +118,7 @@ namespace starrocks::vectorized {
     public:
         JavaGlobalRef(jobject handle) : _handle(handle) {};
         ~JavaGlobalRef();
-        JavaGlobalRef(const JavaGlobalRef&) =delete;
+        JavaGlobalRef(const JavaGlobalRef&) =default;
 
         JavaGlobalRef(JavaGlobalRef&& other) {
             _handle = other._handle;
