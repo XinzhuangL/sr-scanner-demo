@@ -1,5 +1,0 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_CXX_COMPILER=/opt/gcc/usr/bin/c++ -G "CodeBlocks - Unix Makefiles" -S /tmp/tmp.KGGazvpZbc -B /tmp/tmp.KGGazvpZbc/cmake-build-debug
--- JAVA_HOME is set to /var/local/thirdparty/installed/open_jdk
--- Configuring done
--- Generating done
--- Build files have been written to: /tmp/tmp.KGGazvpZbc/cmake-build-debug
