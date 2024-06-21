@@ -9,8 +9,14 @@
 // simplified provider
 // provider used to create JDBCConnector
 namespace starrocks::connector {
+
+
+
     Status JDBCDataSource::open() {
 
+        _create_scanner();
+
+        return Status::OK();
     }
 
     void JDBCDataSource::close() {
@@ -34,11 +40,12 @@ namespace starrocks::connector {
 
     Status JDBCDataSource::_create_scanner() {
         Status status;
-        std::string driver_name = "";
-        std::string driver_url = "";
-        std::string driver_checksum = "";
-        std::string driver_class = "";
+        std::string driver_name = "mssql-jdbc";
+        std::string driver_url = "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.4.2.jre11/mssql-jdbc-12.4.2.jre11.jar";
+        std::string driver_checksum = "11111";
+        std::string driver_class = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         std::string driver_location = "";
+        // todo from table properties
         status = JDBCDriverManager::getInstance() ->get_driver_location(driver_name, driver_url, driver_checksum, &driver_location);
 
         if (!status.ok()) {

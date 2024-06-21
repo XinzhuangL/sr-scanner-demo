@@ -12,6 +12,7 @@
 
 #include <atomic>
 #include <cstring>
+#include "util/download_util.h"
 
 namespace starrocks {
     struct JDBCDriverEntry {
@@ -134,7 +135,7 @@ namespace starrocks {
             std::lock_guard<std::mutex> l(_lock);
             auto iter = _entry_map.find(name);
             if (iter == _entry_map.end()) {
-                entry == std::make_shared<JDBCDriverEntry>(name, checksum);
+                entry = std::make_shared<JDBCDriverEntry>(name, checksum);
                 entry -> first_access_ts = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
                 entry -> location = _generate_driver_location(entry -> name, entry -> checksum, entry -> first_access_ts);
                 _entry_map[name] = entry;
@@ -164,7 +165,18 @@ namespace starrocks {
     }
 
     Status JDBCDriverManager::_download_driver(const std::string &url, starrocks::JDBCDriverManager::JDBCDriverEntryPtr &entry) {
-        // todo impl
+        std::unique_lock<std::mutex> l(entry -> download_lock);
+        if (entry -> is_downloaded) {
+            return Status::OK();
+        }
+        // print driver name, url, checksum,
+        std::string tmp_file = _driver_dir + "/" + entry -> name + "_" + entry -> checksum + ".tmp";
+        std::string target_file = entry -> location;
+        std::string expected_checksum = entry -> checksum;
+        DownloadUtil::download(url, tmp_file, target_file, expected_checksum);
+        entry -> is_downloaded = true;
+        entry -> is_available.store(true);
+        return Status::OK();
     }
 
     bool JDBCDriverManager::_parse_from_file_name(std::string_view file_name, std::string *name, std::string *checksum, int64_t *first_access_ts) {

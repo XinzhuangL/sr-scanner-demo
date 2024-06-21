@@ -4,6 +4,7 @@
 
 #include "connector_scan_operator.h"
 #include "common/chunk.h"
+#include "datasource/jdbc_connector.h"
 
 namespace starrocks {
 
@@ -30,8 +31,7 @@ namespace starrocks {
         ConnectorChunkSource::ConnectorChunkSource(starrocks::pipeline::ScanOperator *op, starrocks::Buffer &chunk_buffer)
         : ChunkSource(op, chunk_buffer)
         {
-            // create data source
-                              _data_source;
+            _data_source = std::make_unique<connector::JDBCDataSource>();
 
         }
 

@@ -22,7 +22,7 @@ public:
     ~JDBCDataSource() override = default;
 
     // todo need provider to create
-    JDBCDataSource();
+    JDBCDataSource() {};
     Status open() override;
     void close() override;
     Status get_next(vectorized::ChunkPtr* chunk) override;
