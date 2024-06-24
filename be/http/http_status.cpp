@@ -51,10 +51,11 @@ namespace starrocks {
             {HttpStatus::GATEWAY_TIMEOUT, "Gateway Time-out"},
             {HttpStatus::HTTP_VERSION_NOT_SUPPORTED, "HTTP Version not supported"}};
 
-    std::string defalut_reason(const HttpStatus& status) {
+    std::string default_reason(const HttpStatus &status) {
         auto iter = s_reason_map.find(status);
         if (iter != s_reason_map.end()) {
             return iter->second;
         }
         return "No reason";
     }
+}

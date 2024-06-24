@@ -42,7 +42,7 @@ namespace starrocks::connector {
         Status status;
         std::string driver_name = "mssql-jdbc";
         std::string driver_url = "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.4.2.jre11/mssql-jdbc-12.4.2.jre11.jar";
-        std::string driver_checksum = "11111";
+        std::string driver_checksum = "083688841881389ef1cd7cf6fd32b96c";
         std::string driver_class = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         std::string driver_location = "";
         // todo from table properties

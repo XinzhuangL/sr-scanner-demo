@@ -40,6 +40,7 @@ namespace starrocks {
             return status;
         }
 
+        digest.digest();
         if (!boost::iequals(digest.hex(), expected_checksum)) {
             return Status::InternalError("Download file's checksum is not match");
         }

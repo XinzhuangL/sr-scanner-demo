@@ -131,9 +131,6 @@ namespace starrocks {
         char _error_buf[CURL_ERROR_SIZE];
         curl_slist* _header_list = nullptr;
 
-        static long download_low_speed_limit_kbps;
-        static long max_download_speed_kbps;
-        static long  download_low_speed_time;
     };
 }
 

@@ -94,6 +94,31 @@ namespace starrocks {
         return Status::OK();
     }
 
+    void HttpClient::set_method(starrocks::HttpMethod method) {
+        switch (method) {
+            case GET:
+                curl_easy_setopt(_curl, CURLOPT_HTTPGET, 1L);
+                return;
+            case PUT:
+                curl_easy_setopt(_curl, CURLOPT_UPLOAD, 1L);
+                return;
+            case POST:
+                curl_easy_setopt(_curl, CURLOPT_POST, 1L);
+                return;
+            case DELETE:
+                curl_easy_setopt(_curl, CURLOPT_CUSTOMREQUEST, "DELETE");
+                return;
+            case HEAD:
+                curl_easy_setopt(_curl, CURLOPT_NOBODY, 1L);
+                return;
+            case OPTIONS:
+                curl_easy_setopt(_curl, CURLOPT_CUSTOMREQUEST, "OPTIONS");
+                return;
+            default:
+                return;
+        }
+    }
+
     size_t HttpClient::on_response_data(const void *data, size_t length) {
         if (*_callback != nullptr) {
             bool is_continue = (*_callback)(data, length);
@@ -127,10 +152,11 @@ namespace starrocks {
 
     Status HttpClient::execute(const std::function<bool(const void *, size_t)> &callback) {
         _callback = &callback;
-        auto code = curl_easy_perform(_curl);
+        CURLcode code = curl_easy_perform(_curl);
         if (code != CURLE_OK) {
             return Status::InternalError(_to_errmsg(code));
         }
+        return Status::OK();
     }
 
     const char* HttpClient::_to_errmsg(CURLcode code) {

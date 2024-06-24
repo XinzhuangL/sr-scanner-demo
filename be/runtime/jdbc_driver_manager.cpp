@@ -5,14 +5,14 @@
 #include "jdbc_driver_manager.h"
 #include "fs/fs_util.h"
 //#include "fmt/format.h"
-#include <utility>
 #include <string>
 #include <string_view>
+#include <utility>
 
 
+#include "util/download_util.h"
 #include <atomic>
 #include <cstring>
-#include "util/download_util.h"
 
 namespace starrocks {
     struct JDBCDriverEntry {
@@ -66,7 +66,10 @@ namespace starrocks {
         std::unique_lock<std::mutex> l(_lock);
         _driver_dir = driver_dir;
         // todo return if err
-        fs::createDirectory(_driver_dir);
+        if (!fs::directoryExists(_driver_dir)) {
+
+            fs::createDirectory(_driver_dir);
+        }
 
         // todo return if err
         std::vector<std::string> driver_files = fs::listDirectory(_driver_dir);
@@ -136,46 +139,46 @@ namespace starrocks {
             auto iter = _entry_map.find(name);
             if (iter == _entry_map.end()) {
                 entry = std::make_shared<JDBCDriverEntry>(name, checksum);
-                entry -> first_access_ts = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-                entry -> location = _generate_driver_location(entry -> name, entry -> checksum, entry -> first_access_ts);
+                entry->first_access_ts = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+                entry->location = _generate_driver_location(entry->name, entry->checksum, entry->first_access_ts);
                 _entry_map[name] = entry;
             } else {
-                entry = iter -> second;
+                entry = iter->second;
             }
-            if (entry ->is_expected(name, checksum)) {
-                if (entry -> is_available.load()) {
+            if (entry->is_expected(name, checksum)) {
+                if (entry->is_available.load()) {
                     // log info
-                    *location = entry -> location;
+                    *location = entry->location;
                     return Status::OK();
                 }
             } else {
                 // checksum mismatch, replace old with new
                 // mark the old one for deletion
-                entry -> should_delete.store(true);
+                entry->should_delete.store(true);
                 // create a new one
                 entry = std::make_shared<JDBCDriverEntry>(name, checksum);
-                entry -> first_access_ts = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
-                entry -> location = _generate_driver_location(entry -> name, entry -> checksum, entry -> first_access_ts);
+                entry->first_access_ts = duration_cast<milliseconds>(system_clock::now().time_since_epoch()).count();
+                entry->location = _generate_driver_location(entry->name, entry->checksum, entry->first_access_ts);
                 _entry_map[name] = entry;
             }
         }
         _download_driver(url, entry);
-        *location = entry -> location;
+        *location = entry->location;
         return Status::OK();
     }
 
     Status JDBCDriverManager::_download_driver(const std::string &url, starrocks::JDBCDriverManager::JDBCDriverEntryPtr &entry) {
-        std::unique_lock<std::mutex> l(entry -> download_lock);
-        if (entry -> is_downloaded) {
+        std::unique_lock<std::mutex> l(entry->download_lock);
+        if (entry->is_downloaded) {
             return Status::OK();
         }
         // print driver name, url, checksum,
-        std::string tmp_file = _driver_dir + "/" + entry -> name + "_" + entry -> checksum + ".tmp";
-        std::string target_file = entry -> location;
-        std::string expected_checksum = entry -> checksum;
+        std::string tmp_file = _driver_dir + "/" + entry->name + "_" + entry->checksum + ".tmp";
+        std::string target_file = entry->location;
+        std::string expected_checksum = entry->checksum;
         DownloadUtil::download(url, tmp_file, target_file, expected_checksum);
-        entry -> is_downloaded = true;
-        entry -> is_available.store(true);
+        entry->is_downloaded = true;
+        entry->is_available.store(true);
         return Status::OK();
     }
 
@@ -192,7 +195,7 @@ namespace starrocks {
             // 将字符串转换为长整型
             *first_access_ts = std::stol(str);
 
-        } catch (std::exception& e) {
+        } catch (std::exception &e) {
             return false;
         }
 

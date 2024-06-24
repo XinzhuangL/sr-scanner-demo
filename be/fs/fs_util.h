@@ -79,7 +79,7 @@ namespace starrocks::fs {
         }
         std::vector<std::string> entries;
         for (const auto& entry : std::filesystem::directory_iterator(directoryPath)) {
-            entries.push_back(entry.path().string());
+            entries.push_back(entry.path().filename().string());
         }
         return entries;
     }
