@@ -6,23 +6,37 @@
 #include <sstream>
 
 JNIEnv* getJNIEnv() {
-    JavaVM** jvm = nullptr;
-    JNIEnv* env;
-    JavaVMInitArgs vm_args;
-    JavaVMOption options[1];
-    // 当前目录作为类路径
-    char str[] = "-Djava.class.path=/Users/lixinzhuang1/IdeaProjects/sr-scanner-demo/fe/target/starrocks-jdbc-bridge-jar-with-dependencies.jar";
-    options[0].optionString = str;
-    // 设置 JNI版本
-    vm_args.version = JNI_VERSION_1_8;
-    vm_args.nOptions = 1;
-    vm_args.options = options;
-    vm_args.ignoreUnrecognized = JNI_FALSE;
-    int ret = JNI_CreateJavaVM(jvm, (void**)&env, &vm_args);
-    if (ret < 0) {
-        std::cerr << "Unable to launch JVM" << std::endl;
-    }
-    return env;
+    static struct JNIInit {
+        JNIEnv* env;
+        JavaVM* jvm;
+        JNIInit() : env(nullptr), jvm(nullptr) {
+            JavaVMInitArgs vm_args;
+            JavaVMOption options[1];
+
+            // 设置类路径
+            options[0].optionString = (char*)"-Djava.class.path=/Users/lixinzhuang1/IdeaProjects/sr-scanner-demo/fe/target/starrocks-jdbc-bridge.jar:/Users/lixinzhuang1/IdeaProjects/sr-scanner-demo/be/lib/jdbc_drivers/mssql-jdbc_083688841881389ef1cd7cf6fd32b96c_1719279860895.jar";
+
+            vm_args.version = JNI_VERSION_1_8;
+            vm_args.nOptions = 1;
+            vm_args.options = options;
+            vm_args.ignoreUnrecognized = JNI_FALSE;
+
+            // 创建JVM
+            jint ret = JNI_CreateJavaVM(&jvm, (void**)&env, &vm_args);
+            if (ret < 0) {
+                std::cerr << "Unable to launch JVM, error code: " << ret << std::endl;
+                throw std::runtime_error("Unable to launch JVM");
+            }
+        }
+
+        ~JNIInit() {
+            if (jvm != nullptr) {
+                jvm->DestroyJavaVM();
+            }
+        }
+    } jniInit;
+
+    return jniInit.env;
 }
 
 
