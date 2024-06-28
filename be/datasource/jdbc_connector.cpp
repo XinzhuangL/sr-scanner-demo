@@ -41,12 +41,12 @@ namespace starrocks::connector {
     Status JDBCDataSource::_create_scanner() {
         Status status;
         std::string driver_name = "mssql-jdbc";
-        std::string driver_url = "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.4.2.jre11/mssql-jdbc-12.4.2.jre11.jar";
-        std::string driver_checksum = "083688841881389ef1cd7cf6fd32b96c";
+        std::string driver_url = "https://repo1.maven.org/maven2/com/microsoft/sqlserver/mssql-jdbc/12.4.2.jre8/mssql-jdbc-12.4.2.jre8.jar";
+        std::string driver_checksum = "6c10ef9c332098b2c51f20f03eb6c294";
         std::string driver_class = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
         std::string driver_location = "";
         // todo from table properties
-        status = JDBCDriverManager::getInstance() ->get_driver_location(driver_name, driver_url, driver_checksum, &driver_location);
+        status = JDBCDriverManager::getInstance() -> get_driver_location(driver_name, driver_url, driver_checksum, &driver_location);
 
         if (!status.ok()) {
             return status;
@@ -56,6 +56,10 @@ namespace starrocks::connector {
         scan_ctx.driver_path = driver_location;
         scan_ctx.driver_class_name = driver_class;
         // properties
+        scan_ctx.jdbc_url = "jdbc:sqlserver://127.0.0.1:1433;databaseName=MyDatabase;trustServerCertificate=true";
+        scan_ctx.user = "sa";
+        scan_ctx.passwd = "Lxz74321.!";
+        scan_ctx.sql = "select SampleID,SampleBigInt from dbo.SampleTypeTable";
 
         _scanner = new vectorized::JDBCScanner(scan_ctx, _tuple_desc);
         _scanner -> open();

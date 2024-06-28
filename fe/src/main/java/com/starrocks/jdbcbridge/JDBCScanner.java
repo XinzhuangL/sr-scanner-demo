@@ -2,6 +2,8 @@ package com.starrocks.jdbcbridge;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.lang.reflect.Array;
 import java.sql.Connection;
@@ -13,6 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JDBCScanner {
+
+    private static final Logger logger = LogManager.getLogger(JDBCScanner.class);
 
     private String driverLocation;
 
@@ -40,33 +44,44 @@ public class JDBCScanner {
     }
 
     public void open() throws Exception {
+        logger.info("this is open start");
 
-        String key = scanContext.getUser() + "/" + scanContext.getJdbcURL();
+        try {
+            String key = scanContext.getUser() + "/" + scanContext.getJdbcURL();
+            logger.info("get key");
 
-        dataSource = DataSourceCache.getInstance().getSource(key, () -> {
-            HikariConfig config = new HikariConfig();
-            config.setDriverClassName(scanContext.getDriverClassName());
-            config.setJdbcUrl(scanContext.getJdbcURL());
-            config.setUsername(scanContext.getUser());
-            config.setPassword(scanContext.getPassword());
-            config.setMaximumPoolSize(scanContext.getConnectionPoolSize());
-            config.setIdleTimeout(scanContext.getConnectionIdleTimeoutMs());
-            dataSource = new HikariDataSource(config);
-            return dataSource;
-        });
-
-        connection = dataSource.getConnection();
-        statement = connection.createStatement();
-        statement.setFetchSize(scanContext.getStatementFetchSize());
-        resultSet = statement.getResultSet();
-        resultSetMetaData = resultSet.getMetaData();
-        resultColumnClassNames = new ArrayList<>(resultSetMetaData.getColumnCount());
-        resultChunk = new ArrayList<>(resultSetMetaData.getColumnCount());
-        for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++) {
-            resultColumnClassNames.add(resultSetMetaData.getColumnClassName(i));
-            Class<?> clazz = Class.forName(resultSetMetaData.getColumnClassName(i));
-            resultChunk.add((Object[]) Array.newInstance(clazz, scanContext.getStatementFetchSize()));
+            dataSource = DataSourceCache.getInstance().getSource(key, () -> {
+                HikariConfig config = new HikariConfig();
+                config.setDriverClassName(scanContext.getDriverClassName());
+                config.setJdbcUrl(scanContext.getJdbcURL());
+                config.setUsername(scanContext.getUser());
+                config.setPassword(scanContext.getPassword());
+                config.setMaximumPoolSize(scanContext.getConnectionPoolSize());
+                config.setIdleTimeout(scanContext.getConnectionIdleTimeoutMs());
+                dataSource = new HikariDataSource(config);
+                return dataSource;
+            });
+            logger.info("create datasource");
+            connection = dataSource.getConnection();
+            statement = connection.createStatement();
+            statement.setFetchSize(scanContext.getStatementFetchSize());
+            logger.info("pre exec sql: {}", scanContext.getSql());
+            statement.execute(scanContext.getSql());
+            logger.info("exec sql: {}", scanContext.getSql());
+            resultSet = statement.getResultSet();
+            resultSetMetaData = resultSet.getMetaData();
+            resultColumnClassNames = new ArrayList<>(resultSetMetaData.getColumnCount());
+            resultChunk = new ArrayList<>(resultSetMetaData.getColumnCount());
+            for (int i = 1; i <= resultSetMetaData.getColumnCount(); i++) {
+                resultColumnClassNames.add(resultSetMetaData.getColumnClassName(i));
+                Class<?> clazz = Class.forName(resultSetMetaData.getColumnClassName(i));
+                resultChunk.add((Object[]) Array.newInstance(clazz, scanContext.getStatementFetchSize()));
+            }
+        } catch (Exception e) {
+            logger.error("exec sql cache exception: {}", e.getMessage());
+            throw e;
         }
+        logger.info("this is open finish");
     }
 
     public List<String> getResultColumnClassNames() {
@@ -97,7 +112,7 @@ public class JDBCScanner {
                 if (resultObject == null) {
                     dataColumn[resultNumRows] = null;
                 } else if (dataColumn instanceof Short[]) {
-                    dataColumn[resultNumRows] = ((Number)resultObject).shortValue();
+                    dataColumn[resultNumRows] = ((Number) resultObject).shortValue();
                 } else if (dataColumn instanceof Integer[]) {
                     dataColumn[resultNumRows] = ((Number) resultObject).intValue();
                 } else if (dataColumn instanceof Long[]) {
@@ -115,8 +130,9 @@ public class JDBCScanner {
         return resultChunk;
     }
 
-
-    public int getResultNumRows() { return resultNumRows; }
+    public int getResultNumRows() {
+        return resultNumRows;
+    }
 
     public void close() throws SQLException {
         if (resultSet != null) {
@@ -129,7 +145,5 @@ public class JDBCScanner {
             connection.close();
         }
     }
-
-
 
 }

@@ -1,0 +1,429 @@
+2024-06-27 09:52:51 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-27 09:53:45 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-27 09:55:16 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 09:55:16 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."com.microsoft.sqlserver.jdbc.SQLServerDriver"
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................60000
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlserver://127.0.0.1:1433;databaseName=MyDatabase;trustServerCertificate=true
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................8
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................8
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"sa"
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-06-27 09:55:16 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 09:55:16 [main] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver was not found, trying direct instantiation.
+2024-06-27 09:55:16 [main] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 09:55:20 [main] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 9f3c3869-3450-4465-ad00-a83c06ea1e28
+2024-06-27 09:55:20 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 09:55:20 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open finish
+2024-06-27 09:58:31 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 09:58:31 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."com.microsoft.sqlserver.jdbc.SQLServerDriver"
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................60000
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlserver://127.0.0.1:1433;databaseName=MyDatabase;trustServerCertificate=true
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................8
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................8
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"sa"
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-06-27 09:58:31 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 09:58:31 [main] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver was not found, trying direct instantiation.
+2024-06-27 09:58:31 [main] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 09:58:32 [main] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: a96fde02-2338-4c8f-9476-eaa9515fb321
+2024-06-27 09:58:32 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 09:58:32 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - exec sql : select SampleID,SampleBigInt from dbo.SampleTypeTable
+2024-06-27 09:58:32 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open finish
+2024-06-27 09:58:33 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-06-27 09:59:43 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 09:59:43 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."com.microsoft.sqlserver.jdbc.SQLServerDriver"
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................60000
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlserver://127.0.0.1:1433;databaseName=MyDatabase;trustServerCertificate=true
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................8
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................8
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"sa"
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-06-27 09:59:43 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 09:59:43 [main] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver was not found, trying direct instantiation.
+2024-06-27 09:59:43 [main] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 09:59:44 [main] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: f54382cf-c695-48b4-a6fa-d9ac65585709
+2024-06-27 09:59:44 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 09:59:44 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open finish
+2024-06-27 10:03:22 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-27 10:03:22 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - get key
+2024-06-27 10:03:22 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 10:03:23 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."com.microsoft.sqlserver.jdbc.SQLServerDriver"
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................60000
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlserver://127.0.0.1:1433;databaseName=MyDatabase;trustServerCertificate=true
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................8
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................8
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"sa"
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-06-27 10:03:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 10:03:23 [main] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver was not found, trying direct instantiation.
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 10:03:23 [main] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 410cb52e-c486-4821-adc0-68ba990b2233
+2024-06-27 10:03:23 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 10:03:23 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - create datasource
+2024-06-27 10:03:23 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - pre exec sql: select SampleID,SampleBigInt from dbo.SampleTypeTable
+2024-06-27 10:03:23 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - exec sql: select SampleID,SampleBigInt from dbo.SampleTypeTable
+2024-06-27 10:03:23 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open finish
+2024-06-27 10:03:24 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-06-27 10:05:50 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-27 10:05:50 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - get key
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 10:05:50 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."com.microsoft.sqlserver.jdbc.SQLServerDriver"
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................60000
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlserver://127.0.0.1:1433;databaseName=MyDatabase;trustServerCertificate=true
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................8
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................8
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"sa"
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-06-27 10:05:50 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 10:05:50 [main] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver was not found, trying direct instantiation.
+2024-06-27 10:05:50 [main] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 10:05:51 [main] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: bdd46e70-da9d-4b22-b832-842958ede343
+2024-06-27 10:05:51 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 10:05:51 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - create datasource
+2024-06-27 10:05:51 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - pre exec sql: select SampleID,SampleBigInt from dbo.SampleTypeTable
+2024-06-27 10:05:51 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - exec sql: select SampleID,SampleBigInt from dbo.SampleTypeTable
+2024-06-27 10:05:51 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open finish
+2024-06-27 10:06:05 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-06-27 10:06:21 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:2 ClientConnectionId: b84467bb-e22d-49e4-a904-4f5a4faf883d
+2024-06-27 10:06:21 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:3 ClientConnectionId: 0c397863-20cb-434c-9992-6cb8a5237fe4
+2024-06-27 10:06:21 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:4 ClientConnectionId: d39f4994-79d4-4aff-b0fa-1e9abe2643b5
+2024-06-27 10:06:21 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:5 ClientConnectionId: 14a94519-9a55-4f3a-a17d-d4228371cd7c
+2024-06-27 10:06:21 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:6 ClientConnectionId: fdb542f0-61e1-41c3-8d4a-428b6de88d0e
+2024-06-27 10:06:21 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:7 ClientConnectionId: 8726f4d2-689a-4efa-8501-59b45639b255
+2024-06-27 10:06:21 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:8 ClientConnectionId: c8bccb77-0d18-412c-8ea5-a358f112afef
+2024-06-27 10:06:21 [HikariPool-1 connection adder] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - After adding stats (total=8, active=1, idle=7, waiting=0)
+2024-06-27 10:15:52 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-27 10:15:52 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - get key
+2024-06-27 10:15:52 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 10:15:52 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-06-27 10:15:52 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-06-27 10:15:52 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-06-27 10:15:52 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-06-27 10:15:52 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."com.microsoft.sqlserver.jdbc.SQLServerDriver"
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................60000
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlserver://127.0.0.1:1433;databaseName=MyDatabase;trustServerCertificate=true
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................8
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................8
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"sa"
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-06-27 10:15:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-27 10:15:53 [main] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver was not found, trying direct instantiation.
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-27 10:15:53 [main] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: 77c80b0f-0a6b-492e-af58-8ec3d743a973
+2024-06-27 10:15:53 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-27 10:15:53 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - create datasource
+2024-06-27 10:15:53 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - pre exec sql: select SampleID,SampleBigInt from dbo.SampleTypeTable
+2024-06-27 10:15:53 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - exec sql: select SampleID,SampleBigInt from dbo.SampleTypeTable
+2024-06-27 10:15:53 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open finish
+2024-06-27 10:16:24 [HikariPool-1 housekeeper] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Pool stats (total=1, active=1, idle=0, waiting=0)
+2024-06-28 09:36:58 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-28 09:36:58 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - get key
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-28 09:36:58 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."com.microsoft.sqlserver.jdbc.SQLServerDriver"
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................60000
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlserver://127.0.0.1:1433;databaseName=MyDatabase;trustServerCertificate=true
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................8
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................8
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"sa"
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-06-28 09:36:58 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-28 09:36:58 [main] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver was not found, trying direct instantiation.
+2024-06-28 09:36:58 [main] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-28 09:37:28 [main] DEBUG com.zaxxer.hikari.pool.PoolBase - HikariPool-1 - Failed to create/setup connection: 通过端口 1433 连接到主机 127.0.0.1 的 TCP/IP 连接失败。错误:“Connection refused (Connection refused)。请验证连接属性。确保 SQL Server 的实例正在主机上运行，且在此端口接受 TCP/IP 连接，还要确保防火墙没有阻止到此端口的 TCP 连接。”。
+2024-06-28 09:37:28 [main] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Cannot acquire connection from data source
+com.microsoft.sqlserver.jdbc.SQLServerException: 通过端口 1433 连接到主机 127.0.0.1 的 TCP/IP 连接失败。错误:“Connection refused (Connection refused)。请验证连接属性。确保 SQL Server 的实例正在主机上运行，且在此端口接受 TCP/IP 连接，还要确保防火墙没有阻止到此端口的 TCP 连接。”。
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerException.convertConnectExceptionToSQLServerException(SQLServerException.java:282) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2578) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:719) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:3523) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:3172) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:3014) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1836) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1246) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.starrocks.jdbcbridge.JDBCScanner.lambda$open$0(JDBCScanner.java:61) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.starrocks.jdbcbridge.DataSourceCache.lambda$getSource$0(DataSourceCache.java:20) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) [?:1.8.0_391]
+	at com.starrocks.jdbcbridge.DataSourceCache.getSource(DataSourceCache.java:20) [starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.starrocks.jdbcbridge.JDBCScanner.open(JDBCScanner.java:53) [starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+2024-06-28 09:37:29 [main] ERROR com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Exception during pool initialization.
+com.microsoft.sqlserver.jdbc.SQLServerException: 通过端口 1433 连接到主机 127.0.0.1 的 TCP/IP 连接失败。错误:“Connection refused (Connection refused)。请验证连接属性。确保 SQL Server 的实例正在主机上运行，且在此端口接受 TCP/IP 连接，还要确保防火墙没有阻止到此端口的 TCP 连接。”。
+	at com.microsoft.sqlserver.jdbc.SQLServerException.makeFromDriverError(SQLServerException.java:231) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerException.convertConnectExceptionToSQLServerException(SQLServerException.java:282) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SocketFinder.findSocket(IOBuffer.java:2578) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.TDSChannel.open(IOBuffer.java:719) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectHelper(SQLServerConnection.java:3523) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.login(SQLServerConnection.java:3172) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connectInternal(SQLServerConnection.java:3014) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerConnection.connect(SQLServerConnection.java:1836) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.microsoft.sqlserver.jdbc.SQLServerDriver.connect(SQLServerDriver.java:1246) ~[mssql-jdbc_6c10ef9c332098b2c51f20f03eb6c294_1719538586480.jar:?]
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:138) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:358) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:206) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:477) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.checkFailFast(HikariPool.java:560) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.pool.HikariPool.<init>(HikariPool.java:115) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.zaxxer.hikari.HikariDataSource.<init>(HikariDataSource.java:81) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.starrocks.jdbcbridge.JDBCScanner.lambda$open$0(JDBCScanner.java:61) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.starrocks.jdbcbridge.DataSourceCache.lambda$getSource$0(DataSourceCache.java:20) ~[starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at java.util.concurrent.ConcurrentHashMap.computeIfAbsent(ConcurrentHashMap.java:1660) [?:1.8.0_391]
+	at com.starrocks.jdbcbridge.DataSourceCache.getSource(DataSourceCache.java:20) [starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+	at com.starrocks.jdbcbridge.JDBCScanner.open(JDBCScanner.java:53) [starrocks-jdbc-bridge-jar-with-dependencies.jar:?]
+2024-06-28 09:37:29 [main] ERROR com.starrocks.jdbcbridge.JDBCScanner - exec sql cache exception: Failed to initialize pool: 通过端口 1433 连接到主机 127.0.0.1 的 TCP/IP 连接失败。错误:“Connection refused (Connection refused)。请验证连接属性。确保 SQL Server 的实例正在主机上运行，且在此端口接受 TCP/IP 连接，还要确保防火墙没有阻止到此端口的 TCP 连接。”。
+2024-06-28 09:38:02 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open start
+2024-06-28 09:38:02 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - get key
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-28 09:38:02 [main] WARN  com.zaxxer.hikari.HikariConfig - HikariPool-1 - idleTimeout has been set but has no effect because the pool is operating as a fixed size pool.
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - HikariPool-1 - configuration:
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - allowPoolSuspension.............false
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - autoCommit......................true
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - catalog.........................none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionInitSql...............none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTestQuery.............none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - connectionTimeout...............30000
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSource......................none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceClassName.............none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceJNDI..................none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - dataSourceProperties............{password=<masked>}
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - driverClassName................."com.microsoft.sqlserver.jdbc.SQLServerDriver"
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - exceptionOverrideClassName......none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckProperties...........{}
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - healthCheckRegistry.............none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - idleTimeout.....................60000
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - initializationFailTimeout.......1
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - isolateInternalQueries..........false
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - jdbcUrl.........................jdbc:sqlserver://127.0.0.1:1433;databaseName=MyDatabase;trustServerCertificate=true
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - leakDetectionThreshold..........0
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - maxLifetime.....................1800000
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - maximumPoolSize.................8
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricRegistry..................none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - metricsTrackerFactory...........none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - minimumIdle.....................8
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - password........................<masked>
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - poolName........................"HikariPool-1"
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - readOnly........................false
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - registerMbeans..................false
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - scheduledExecutor...............none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - schema..........................none
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - threadFactory...................internal
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - transactionIsolation............default
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - username........................"sa"
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.HikariConfig - validationTimeout...............5000
+2024-06-28 09:38:02 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2024-06-28 09:38:02 [main] WARN  com.zaxxer.hikari.util.DriverDataSource - Registered driver with driverClassName=com.microsoft.sqlserver.jdbc.SQLServerDriver was not found, trying direct instantiation.
+2024-06-28 09:38:02 [main] DEBUG com.zaxxer.hikari.util.DriverDataSource - Driver class com.microsoft.sqlserver.jdbc.SQLServerDriver found in Thread context class loader java.net.FactoryURLClassLoader@1b2c6ec2
+2024-06-28 09:38:03 [main] DEBUG com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection ConnectionID:1 ClientConnectionId: c6cacdc1-70a2-4446-9437-ddeaaa8aa5fa
+2024-06-28 09:38:03 [main] INFO  com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2024-06-28 09:38:03 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - create datasource
+2024-06-28 09:38:03 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - pre exec sql: select SampleID,SampleBigInt from dbo.SampleTypeTable
+2024-06-28 09:38:03 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - exec sql: select SampleID,SampleBigInt from dbo.SampleTypeTable
+2024-06-28 09:38:03 [main] INFO  com.starrocks.jdbcbridge.JDBCScanner - this is open finish

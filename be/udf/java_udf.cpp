@@ -5,6 +5,35 @@
 #include "udf/java_udf.h"
 #include <sstream>
 
+// find a jclass and return a global jclass ref
+#define JNI_FIND_CLASS(clazz_name)                \
+    [](const char* name) {                        \
+        auto clazz = _env->FindClass(name);       \
+        auto g_clazz = _env->NewGlobalRef(clazz); \
+        _env->DeleteLocalRef(clazz);              \
+        return (jclass)g_clazz;                   \
+    }(clazz_name)
+
+//#define ADD_NUMBERIC_CLASS(prim_clazz, clazz, sign)                                                           \
+//    {                                                                                                         \
+//        _class_##prim_clazz = JNI_FIND_CLASS("java/lang/" #clazz);                                            \
+//        CHECK(_class_##prim_clazz);                                                                           \
+//        _value_of_##prim_clazz =                                                                              \
+//                _env->GetStaticMethodID(_class_##prim_clazz, "valueOf", "(" #sign ")Ljava/lang/" #clazz ";"); \
+//        CHECK(_value_of_##prim_clazz) << "Not Found"                                                          \
+//                                      << "(" #sign ")Ljava/lang/" #clazz ";";                                 \
+//        _val_##prim_clazz = _env->GetMethodID(_class_##prim_clazz, #prim_clazz "Value", "()" #sign);          \
+//        CHECK(_val_##prim_clazz);                                                                             \
+//    }
+#define ADD_NUMBERIC_CLASS(prim_clazz, clazz, sign)                                                           \
+    {                                                                                                         \
+        _class_##prim_clazz = JNI_FIND_CLASS("java/lang/" #clazz);                                            \
+        _value_of_##prim_clazz =                                                                              \
+                _env->GetStaticMethodID(_class_##prim_clazz, "valueOf", "(" #sign ")Ljava/lang/" #clazz ";"); \
+        _val_##prim_clazz = _env->GetMethodID(_class_##prim_clazz, #prim_clazz "Value", "()" #sign);          \
+    }
+
+
 JNIEnv* getJNIEnv() {
     static struct JNIInit {
         JNIEnv* env;
@@ -14,7 +43,7 @@ JNIEnv* getJNIEnv() {
             JavaVMOption options[1];
 
             // 设置类路径
-            options[0].optionString = (char*)"-Djava.class.path=/Users/lixinzhuang1/IdeaProjects/sr-scanner-demo/fe/target/starrocks-jdbc-bridge.jar:/Users/lixinzhuang1/IdeaProjects/sr-scanner-demo/be/lib/jdbc_drivers/mssql-jdbc_083688841881389ef1cd7cf6fd32b96c_1719279860895.jar";
+            options[0].optionString = (char*)"-Djava.class.path=/Users/lixinzhuang1/IdeaProjects/sr-scanner-demo/fe/target/starrocks-jdbc-bridge-jar-with-dependencies.jar:/Users/lixinzhuang1/IdeaProjects/sr-scanner-demo/be/lib/jdbc_drivers/*";
 
             vm_args.version = JNI_VERSION_1_8;
             vm_args.nOptions = 1;
@@ -120,8 +149,26 @@ namespace starrocks::vectorized {
     }
 
     void JVMFunctionHelper::_init() {
-        // todo
+        _object_class = JNI_FIND_CLASS("java/lang/Object");
+        _object_array_class = JNI_FIND_CLASS("[Ljava/lang/Object;");
+        _string_class = JNI_FIND_CLASS("java/lang/String");
+        _throwable_class = JNI_FIND_CLASS("java/lang/Throwable");
+        _jarrays_class = JNI_FIND_CLASS("java/util/Arrays");
+        _list_class = JNI_FIND_CLASS("java/util/List");
+
+        ADD_NUMBERIC_CLASS(boolean, Boolean, Z);
+        ADD_NUMBERIC_CLASS(byte, Byte, B);
+        ADD_NUMBERIC_CLASS(short, Short, S);
+        ADD_NUMBERIC_CLASS(int, Integer, I);
+        ADD_NUMBERIC_CLASS(long, Long, J);
+        ADD_NUMBERIC_CLASS(float, Float, F);
+        ADD_NUMBERIC_CLASS(double, Double, D);
+        // todo impl
+
+        _list_get = _env->GetMethodID(_list_class, "get", "(I)Ljava/lang/Object;");
+        _list_size = _env->GetMethodID(_list_class, "size", "()I");
     }
+
     Status detect_java_runtime() {
         const char* p = std::getenv("JAVA_HOME");
         if (p == nullptr) {

@@ -11,6 +11,21 @@ set(JAVA_HOME /Library/Java/JavaVirtualMachines/jdk-1.8.jdk/Contents/Home)
 
 message(STATUS "JAVA_HOME is set to ${JAVA_HOME}")
 
+# GOOGLE TEST
+
+enable_testing()
+# This project is tested using GoogleTest.
+add_subdirectory("third_party/googletest")
+include_directories(${PROJECT_SOURCE_DIR}/third_party/googletest/googlemock/include)
+include_directories(${PROJECT_SOURCE_DIR}/third_party/googletest/googletest/include)
+
+# glog
+include_directories(/usr/local/Cellar/glog/0.6.0/include)
+find_library(GLOG_LIBRARY glog PATHS /usr/local/Cellar/glog/0.6.0/lib)
+if (NOT GLOG_LIBRARY)
+    message(FATAL_ERROR "GLOG library not found")
+endif ()
+
 
 # 包含 JNI 头文件目录
 include_directories(${JAVA_HOME}/include)
@@ -78,6 +93,9 @@ add_executable(be main.cpp
         http/http_method.cpp
         http/http_response.cpp
         http/http_status.cpp)
+
+
+target_link_libraries(be gmock gtest gtest_main)
 
 target_link_libraries(be ${JVM_LIBRARY})
 target_link_libraries(be ${OPENSSL_SSL_LIBRARY} ${OPENSSL_CRYPTO_LIBRARY})
