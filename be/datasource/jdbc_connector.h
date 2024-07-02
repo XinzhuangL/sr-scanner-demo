@@ -23,7 +23,7 @@ public:
 
     // todo need provider to create
     JDBCDataSource() {};
-    Status open() override;
+    Status open(RuntimeState* state) override;
     void close() override;
     Status get_next(vectorized::ChunkPtr* chunk) override;
 

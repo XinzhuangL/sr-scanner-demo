@@ -30,7 +30,7 @@ namespace starrocks::vectorized {
     public:
         JDBCScanner(const JDBCScanContext &context, const TupleDescriptor *tuple_desc)
         //: _scan_ctx(context), _slot_descs(tuple_desc -> slots()){}
-                : _scan_ctx(context), _slot_descs(){}
+                : _scan_ctx(context), _slot_descs(tuple_desc -> slots()){}
         ~JDBCScanner() = default;
 
         Status open();

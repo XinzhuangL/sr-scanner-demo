@@ -8,6 +8,8 @@
 #include "common/status.h"
 #include "common/chunk.h"
 #include "common/buffer.h"
+#include "runtime/runtime_state.h"
+
 
 namespace starrocks {
     namespace pipeline {
@@ -22,10 +24,10 @@ namespace starrocks {
             // Return true if eos is not reached
             // Return false if eos is reached or error occurred
             bool has_next_chunk() const { return _status.ok(); }
-            Status buffer_next_batch_chunks_blocking(size_t batch_size);
+            Status buffer_next_batch_chunks_blocking(RuntimeState* state, size_t batch_size);
         protected:
             // MUST be implemented by different ChunkSource
-            virtual Status _read_chunk(vectorized::ChunkPtr* chunk) = 0;
+            virtual Status _read_chunk(RuntimeState* state, vectorized::ChunkPtr* chunk) = 0;
             ScanOperator* _scan_op;
             Buffer& _chunk_buffer;
             Status _status = Status::OK();

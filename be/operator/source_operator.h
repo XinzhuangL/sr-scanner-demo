@@ -9,6 +9,7 @@
 #include "common/status.h"
 #include "common/statusor.h"
 #include <vector>
+#include "runtime/runtime_state.h"
 
 namespace starrocks {
     namespace pipeline {
@@ -94,10 +95,10 @@ namespace starrocks {
             // Pull chunk from this operator
             // Use shared_ptr, because in some cases (local broadcast exchange),
             // the chunk need to be shared
-            virtual StatusOr<vectorized::ChunkPtr> pull_chunk() = 0;
+            virtual StatusOr<vectorized::ChunkPtr> pull_chunk(RuntimeState* state) = 0;
 
             // Push chunk to this operator
-            virtual Status push_chunk(const vectorized::ChunkPtr& chunk) = 0;
+            virtual Status push_chunk(RuntimeState* state, const vectorized::ChunkPtr& chunk) = 0;
 
             // reset_state is used by MultilaneOperator in cache mechanism, because lanes in MultilaneOperator are
             // re-used by tablets, before the lane serves for the current tablet, it must invoke reset_state to re-prepare
@@ -139,7 +140,7 @@ namespace starrocks {
                 : Operator(id, name) {}
             ~SourceOperator() override = default;
             bool need_input() const override { return false; }
-            Status push_chunk(const vectorized::ChunkPtr &chunk) override {
+            Status push_chunk(RuntimeState* state, const vectorized::ChunkPtr &chunk) override {
                 return Status::InternalError("Shouldn't push chunk to source operator");
             }
         };

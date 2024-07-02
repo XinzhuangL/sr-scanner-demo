@@ -68,7 +68,7 @@ namespace starrocks {
         private:
             //
 
-            Status _read_chunk(vectorized::ChunkPtr* chunk) override;
+            Status _read_chunk(RuntimeState* state, vectorized::ChunkPtr* chunk) override;
 
             connector::DataSourcePtr _data_source;
             // maybe used vectorized::ConnectorScanNode* _scan_node;

@@ -10,11 +10,11 @@ namespace starrocks::pipeline {
         return Status::OK();
     }
 
-    StatusOr<DriverState> MockPipelineDriver::process() {
+    StatusOr<DriverState> MockPipelineDriver::process(RuntimeState* state) {
 
 
         ScanOperator* cur_op = source_scan_operator();
-        StatusOr<vectorized::ChunkPtr> maybe_chunk = cur_op -> pull_chunk();
+        StatusOr<vectorized::ChunkPtr> maybe_chunk = cur_op -> pull_chunk(state);
 
         Status return_status = Status::OK();
 

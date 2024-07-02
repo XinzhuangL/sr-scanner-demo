@@ -6,13 +6,17 @@
 #include "scanner/jdbc_scanner.h"
 #include "runtime/jdbc_driver_manager.h"
 
+
 // simplified provider
 // provider used to create JDBCConnector
 namespace starrocks::connector {
 
 
 
-    Status JDBCDataSource::open() {
+    Status JDBCDataSource::open(RuntimeState* state) {
+
+        // todo tupleId
+        _tuple_desc = state->desc_tbl().get_tuple_descriptor(123);
 
         _create_scanner();
 

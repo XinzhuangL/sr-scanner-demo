@@ -19,7 +19,7 @@ namespace starrocks {
             // todo virtual Status do_prepare() = 0;
             // todo virtual void do_close() = 0;
             virtual ChunkSourcePtr create_chunk_source() = 0;
-            StatusOr<vectorized::ChunkPtr> pull_chunk() override;
+            StatusOr<vectorized::ChunkPtr> pull_chunk(RuntimeState* state) override;
             // todo part of all
         protected:
             static constexpr size_t kIOTaskBatchSize = 64;
@@ -42,12 +42,12 @@ namespace starrocks {
         private:
             // mutable SpinLock _scan_status_mutes;
             Status _scan_status;
-            Status _try_to_trigger_next_scan();
+            Status _try_to_trigger_next_scan(RuntimeState* state);
             // Status _trigger_next_scan(RuntimeState* state, int chunk_source_index)
-            Status _trigger_next_scan();
+            Status _trigger_next_scan(RuntimeState* state);
             void _finish_chunk_source_task();
             // create chunk
-            Status _pickup_morsel();
+            Status _pickup_morsel(RuntimeState* state);
 
             // todo simple single chunk_source
             // std::vector<ChunkSourcePtr> _chunk_sources;

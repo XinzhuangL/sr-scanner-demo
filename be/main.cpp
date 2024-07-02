@@ -10,6 +10,8 @@ int main() {
 
     pipeline::Operators ops;
 
+    RuntimeState state;
+
     ops.push_back(std::make_unique<pipeline::ConnectorScanOperator>());
 
 
@@ -17,7 +19,7 @@ int main() {
 
    pipDriver->prepare();
 
-   pipDriver->process();
+   pipDriver->process(&state);
 
    // todo finished
 }

@@ -5,20 +5,20 @@
 #ifndef BE_TYPES_H
 #define BE_TYPES_H
 
-#include "runtime/primitive_type.h"
-#include <vector>
-#include <string>
 #include "common/constexpr.h"
+#include "runtime/primitive_type.h"
 #include <glog/logging.h>
+#include <string>
+#include <vector>
 
 namespace starrocks {
     struct TypeDescriptor {
 
-        PrimitiveType type {INVALID_TYPE};
+        PrimitiveType type{INVALID_TYPE};
 
         // Only meaningful for type TYPE_CHAR/TYPE_VARCHAR/TYPE_HILL
 
-        int len {-1};
+        int len{-1};
         static constexpr int MAX_VARCHAR_LENGTH = 1048576;
         static constexpr int MAX_CHAR_LENGTH = 255;
         static constexpr int MAX_CHAR_INLINE_LENGTH = 128;
@@ -64,6 +64,7 @@ namespace starrocks {
             TypeDescriptor res;
             res.type = TYPE_JSON;
             res.len = kJsonDefaultSize;
+            return res;
         }
 
         static TypeDescriptor create_hll_type() {
@@ -119,18 +120,41 @@ namespace starrocks {
         static TypeDescriptor from_primitive_type(PrimitiveType type,
                                                   [[maybe_unused]] int len = TypeDescriptor::MAX_VARCHAR_LENGTH,
                                                   [[maybe_unused]] int precision = 27, [[maybe_unused]] int scale = 9) {
-
+            switch (type) {
+                case TYPE_CHAR:
+                    return TypeDescriptor::create_char_type(MAX_CHAR_LENGTH);
+                case TYPE_VARCHAR:
+                    return TypeDescriptor::create_varchar_type(MAX_VARCHAR_LENGTH);
+                case TYPE_HLL:
+                    return TypeDescriptor::create_hll_type();
+                case TYPE_DECIMAL:
+                    return TypeDescriptor::create_decimal_type(precision, scale);
+                case TYPE_DECIMALV2:
+                    return TypeDescriptor::create_decimalv2_type(precision, scale);
+                case TYPE_DECIMAL32:
+                    return TypeDescriptor::create_decimalv3_type(TYPE_DECIMAL32, precision, scale);
+                case TYPE_DECIMAL64:
+                    return TypeDescriptor::create_decimalv3_type(TYPE_DECIMAL64, precision, scale);
+                case TYPE_DECIMAL128:
+                    return TypeDescriptor::create_decimalv3_type(TYPE_DECIMAL128, precision, scale);
+                case TYPE_JSON:
+                    return TypeDescriptor::create_json_type();
+                case TYPE_OBJECT:
+                    return TypeDescriptor::create_bitmap_type();
+                default:
+                    return TypeDescriptor(type);
+            }
         }
 
 
-
-
-
-
-
+        std::string debug_string() const;
     };
-}
 
+    inline std::ostream &operator<<(std::ostream &os, const TypeDescriptor &type) {
+        os << type.debug_string();
+        return os;
+    }
+}// namespace starrocks
 
 
 #endif//BE_TYPES_H

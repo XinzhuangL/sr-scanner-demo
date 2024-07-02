@@ -8,6 +8,7 @@
 #include "table/descriptors.h"
 #include "common/chunk.h"
 #include <memory>
+#include "runtime/runtime_state.h"
 
 namespace starrocks {
     namespace vectorized {
@@ -23,7 +24,7 @@ namespace starrocks {
         class DataSource {
         public:
             virtual ~DataSource() = default;
-            virtual Status open() { return Status::OK(); }
+            virtual Status open(RuntimeState* state) { return Status::OK(); }
             virtual void close() {}
             virtual Status get_next(vectorized::ChunkPtr* chunk) { return Status::OK(); }
             virtual bool skip_predicate() const { return false; }

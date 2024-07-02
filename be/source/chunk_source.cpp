@@ -15,7 +15,7 @@ namespace starrocks::pipeline {
         return Status::OK();
     }
 
-    Status ChunkSource::buffer_next_batch_chunks_blocking(size_t batch_size) {
+    Status ChunkSource::buffer_next_batch_chunks_blocking(RuntimeState* state, size_t batch_size) {
         using namespace vectorized;
         // return if status is not ok
         if (!_status.ok()) {
@@ -25,7 +25,7 @@ namespace starrocks::pipeline {
         // todo need an additional condition '!state->is_cancelled()'
         for (size_t i = 0; i < batch_size; i++) {
             ChunkPtr chunk;
-            _status = _read_chunk(&chunk);
+            _status = _read_chunk(state, &chunk);
             // we always output an empty chunk instead of nullptr, because we need set tablet_id
             // and is_last_chunk flag in the chunk
 

@@ -35,11 +35,11 @@ namespace starrocks {
 
         }
 
-        Status ConnectorChunkSource::_read_chunk(vectorized::ChunkPtr *chunk) {
+        Status ConnectorChunkSource::_read_chunk(RuntimeState* state, vectorized::ChunkPtr *chunk) {
 
             if(!_opened) {
                 // todo need create _data_source
-                auto status = _data_source -> open();
+                auto status = _data_source -> open(state);
                 if(!status.ok()) {
                     return Status::InternalError("open data source error");
                 }

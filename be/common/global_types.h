@@ -8,6 +8,7 @@
 namespace {
     typedef int TupleId;
     typedef int SlotId;
+    typedef int TableId;
 }
 
 #endif//BE_GLOBAL_TYPES_H

@@ -11,7 +11,7 @@ namespace starrocks::pipeline {
             return nullptr;
     }
 
-    Status ScanOperator::_pickup_morsel() {
+    Status ScanOperator::_pickup_morsel(RuntimeState* state) {
 
         _chunk_source = create_chunk_source();
         auto status = _chunk_source -> prepare();
@@ -20,19 +20,19 @@ namespace starrocks::pipeline {
             return status;
         }
 
-        status = _trigger_next_scan();
+        status = _trigger_next_scan(state);
 
         return Status::OK();
     }
 
-    StatusOr<vectorized::ChunkPtr> ScanOperator::pull_chunk() {
+    StatusOr<vectorized::ChunkPtr> ScanOperator::pull_chunk(RuntimeState* state) {
         // get scan status
         // if(!_get_scan_status().ok()) return StatusOr<vectorized::ChunkPtr>();
 
         // set peak buffer size counter
 
         // todo return if error
-        _try_to_trigger_next_scan();
+        _try_to_trigger_next_scan(state);
 
 
         // try to trigger next scan
@@ -40,22 +40,22 @@ namespace starrocks::pipeline {
 
     }
 
-    Status ScanOperator::_try_to_trigger_next_scan() {
+    Status ScanOperator::_try_to_trigger_next_scan(RuntimeState* state) {
         // to sure to put it here for updating state.
         // because we want to update state based on raw data.
 
         if(_chunk_source != nullptr && _chunk_source -> has_next_chunk()) {
-            if(!_trigger_next_scan().ok()) return Status::InternalError("trigger next scan error");
+            if(!_trigger_next_scan(state).ok()) return Status::InternalError("trigger next scan error");
         }
         // to create _chunk_source
-        _pickup_morsel();
+        _pickup_morsel(state);
         return Status::OK();
     }
 
-    Status ScanOperator::_trigger_next_scan() {
+    Status ScanOperator::_trigger_next_scan(RuntimeState* state) {
 
         auto& chunk_source = _chunk_source;
-        auto status = chunk_source ->buffer_next_batch_chunks_blocking(kIOTaskBatchSize);
+        auto status = chunk_source ->buffer_next_batch_chunks_blocking(state, kIOTaskBatchSize);
         _finish_chunk_source_task();
 
         return status;

@@ -38,7 +38,7 @@ namespace starrocks::pipeline {
 
         ~MockPipelineDriver() noexcept;
         Status prepare();
-        StatusOr<DriverState> process();
+        StatusOr<DriverState> process(RuntimeState* runtime_state);
         void finalize(DriverState state);
 
     Operators& operators() { return _operators; }
