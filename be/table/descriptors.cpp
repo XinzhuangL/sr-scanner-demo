@@ -1,19 +1,21 @@
 #include "table/descriptors.h"
 
+#include <utility>
+
 
 namespace starrocks {
     SlotDescriptor::SlotDescriptor(
             SlotId id,
-            TypeDescriptor type,
+            TypeDescriptor& type,
             TupleId parent,
-            std::string col_name,
+            std::string& col_name,
             int slot_idx,
             int slot_size,
             bool is_materialized)
         : _id(id),
-          _type(type),
+          _type(std::move(type)),
           _parent(parent),
-          _col_name(col_name),
+          _col_name(std::move(col_name)),
           _slot_idx(slot_idx),
           _slot_size(slot_size),
           _is_materialized(is_materialized) {}
@@ -25,25 +27,28 @@ namespace starrocks {
         return out.str();
     }
 
-    TableDescriptor::TableDescriptor(std::string name, std::string database, TableId id) : _name(name),
-                                                                                           _database(database),
-                                                                                           _id(id) {}
+
+    TableDescriptor::TableDescriptor(const starrocks::MockTTableDescriptor &mt_tbl) : _name(mt_tbl._name),
+                                                                                _database(mt_tbl._database),
+                                                                                _id(mt_tbl._id) {
+    }
     std::string TableDescriptor::debug_string() const {
         std::stringstream out;
         out << "#name=" << _name;
         return out.str();
     }
 
-    JDBCTableDescriptor::JDBCTableDescriptor(std::string name, std::string database, TableId id, std::string jdbc_driver_name, std::string jdbc_driver_url, std::string jdbc_driver_checksum, std::string jdbc_driver_class, std::string jdbc_url, std::string jdbc_table, std::string jdbc_user, std::string jdbc_passwd) :
-                                                                                                                                                                                                                                                                                                                             TableDescriptor(name, database, id),
-    _jdbc_driver_name(name),
-    _jdbc_driver_url(jdbc_driver_url),
-    _jdbc_driver_checksum(jdbc_driver_checksum),
-    _jdbc_driver_class(jdbc_driver_class),
-    _jdbc_url(jdbc_url),
-    _jdbc_table(jdbc_table),
-    _jdbc_user(jdbc_user),
-    _jdbc_passwd(jdbc_passwd){}
+
+    JDBCTableDescriptor::JDBCTableDescriptor(const starrocks::MockTTableDescriptor &mt_tbl) : TableDescriptor(mt_tbl),
+                                                                                        _jdbc_driver_name(mt_tbl._name),
+                                                                                        _jdbc_driver_url(mt_tbl._jdbc_table._jdbc_driver_url),
+                                                                                        _jdbc_driver_checksum(mt_tbl._jdbc_table._jdbc_driver_checksum),
+                                                                                        _jdbc_driver_class(mt_tbl._jdbc_table._jdbc_driver_class),
+                                                                                        _jdbc_url(mt_tbl._jdbc_table._jdbc_url),
+                                                                                        _jdbc_table(mt_tbl._jdbc_table._jdbc_table),
+                                                                                        _jdbc_user(mt_tbl._jdbc_table._jdbc_user),
+                                                                                        _jdbc_passwd(mt_tbl._jdbc_table._jdbc_passwd) {
+    }
 
     std::string JDBCTableDescriptor::debug_string() const {
         std::stringstream out;
@@ -54,10 +59,9 @@ namespace starrocks {
         return out.str();
     }
 
-    TupleDescriptor::TupleDescriptor(TupleId id, starrocks::TableDescriptor *table_descriptor, int byte_size):
-    _id(id),
-    _table_desc(table_descriptor),
-    _byte_size(byte_size){}
+    TupleDescriptor::TupleDescriptor(TupleId id, starrocks::TableDescriptor *table_descriptor, int byte_size) : _id(id),
+                                                                                                                _table_desc(table_descriptor),
+                                                                                                                _byte_size(byte_size) {}
 
     void TupleDescriptor::add_slot(starrocks::SlotDescriptor *slot) {
         _slots.push_back(slot);
@@ -85,9 +89,18 @@ namespace starrocks {
     }
 
 
-    // todo Status DescriptorTbl::create(RuntimeState* state, ObjectPool* pool, const TDescriptorTable& thrift_tbl,
-    //                             DescriptorTbl** tbl, int32_t chunk_size)
+    Status DescriptorTbl::create(starrocks::RuntimeState *state, const MockTTableDescriptor &mt_tbl, starrocks::DescriptorTbl **tbl, int32_t chunk_size) {
+        // todo JDBC only
+        TableDescriptor *desc = nullptr;
 
+        switch (mt_tbl._table_type) {
+            case TableType::JDBC_TABLE:
+                desc = new JDBCTableDescriptor(mt_tbl);
+                break;
+            default:
+                break;
+        }
+    }
 
     TableDescriptor *DescriptorTbl::get_table_descriptor(TableId id) const {
         auto i = _tbl_desc_map.find(id);
@@ -117,10 +130,10 @@ namespace starrocks {
         }
     }
 
-    void DescriptorTbl::get_tuple_descs(std::vector<TupleDescriptor*>* descs) const {
+    void DescriptorTbl::get_tuple_descs(std::vector<TupleDescriptor *> *descs) const {
         descs->clear();
 
-        for (auto i : _tuple_desc_map) {
+        for (auto i: _tuple_desc_map) {
             descs->push_back(i.second);
         }
     }
@@ -128,7 +141,7 @@ namespace starrocks {
         std::stringstream out;
         out << "tuples:\n";
 
-        for (auto i : _tuple_desc_map) {
+        for (auto i: _tuple_desc_map) {
             out << i.second->debug_string() << '\n';
         }
 

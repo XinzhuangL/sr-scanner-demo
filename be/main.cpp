@@ -2,6 +2,7 @@
 #include "operator/connector_scan_operator.h"
 #include "runtime/jdbc_driver_manager.h"
 #include <vector>
+#include "runtime/runtime_state.h"
 using namespace starrocks;
 int main() {
 
@@ -15,10 +16,14 @@ int main() {
     ops.push_back(std::make_unique<pipeline::ConnectorScanOperator>());
 
 
+
+
+
    pipeline::MockPipelineDriver* pipDriver = new pipeline::MockPipelineDriver(ops);
 
    pipDriver->prepare();
 
+   // create state
    pipDriver->process(&state);
 
    // todo finished

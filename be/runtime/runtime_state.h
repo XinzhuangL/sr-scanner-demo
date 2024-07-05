@@ -19,8 +19,8 @@ namespace starrocks {
     class DescriptorTbl;
     class RuntimeState {
     public:
-        RuntimeState();
-        ~RuntimeState();
+        RuntimeState() {};
+        ~RuntimeState() {};
 
         const DescriptorTbl& desc_tbl() const { return *_desc_tbl; }
         void set_desc_tbl(DescriptorTbl* desc_tbl) { _desc_tbl = desc_tbl; }

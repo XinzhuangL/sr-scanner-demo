@@ -6,14 +6,17 @@
 #define BE_DESCRIPTORS_H
 #include "runtime/types.h"
 #include "common/global_types.h"
+#include "common/status.h"
+#include "runtime/runtime_state.h"
+#include "common/mock_t_table_descriptor.h"
 
 namespace starrocks {
     class SlotDescriptor {
     public:
         SlotDescriptor(SlotId id,
-                       TypeDescriptor type,
+                       TypeDescriptor& type,
                        TupleId parent,
-                       std::string col_name,
+                       std::string& col_name,
                        int slot_idx,
                        int slot_size,
                        bool is_materialized);
@@ -56,7 +59,7 @@ namespace starrocks {
     class TableDescriptor {
     public:
         // TableDescriptor(thrift)
-        TableDescriptor(std::string name, std::string database, TableId id);
+        TableDescriptor(const starrocks::MockTTableDescriptor &mt_tbl);
         virtual ~TableDescriptor() = default;
         TableId table_id() const { return _id; }
         virtual std::string debug_string() const;
@@ -71,17 +74,8 @@ namespace starrocks {
     };
 
     class JDBCTableDescriptor : public TableDescriptor {
-        JDBCTableDescriptor(
-                std::string name, std::string database, TableId id,
-                std::string jdbc_driver_name,
-                std::string jdbc_driver_url,
-                std::string jdbc_driver_checksum,
-                std::string jdbc_driver_class,
-                std::string jdbc_url,
-                std::string jdbc_table,
-                std::string jdbc_user,
-                std::string jdbc_passwd
-                );
+    public:
+        JDBCTableDescriptor(const MockTTableDescriptor& mt_tbl);
         std::string debug_string() const override;
         const std::string jdbc_driver_name() const { return _jdbc_driver_name; }
         const std::string jdbc_driver_url() const { return _jdbc_driver_url; }
@@ -137,7 +131,9 @@ namespace starrocks {
     public:
         // Creates a descriptor tbl with in 'pool' from thrift_tbl and returns it via 'tbl'.
         // Returns OK on success, otherwise error (int which case 'tbl' will be unset).
-        // todo status create()
+        //
+        // ObjectPool, TDescriptorTable, DescriptorTbl,
+        static Status create(RuntimeState* state,  const MockTTableDescriptor& mt_tbl, DescriptorTbl** tbl, int32_t chunk_size);
 
         TableDescriptor* get_table_descriptor(TableId id) const;
         TupleDescriptor* get_tuple_descriptor(TupleId id) const;
@@ -160,6 +156,8 @@ namespace starrocks {
         DescriptorTbl() {}
 
     };
+
+    // todo impl
     class RowDescriptor {};
 
 
